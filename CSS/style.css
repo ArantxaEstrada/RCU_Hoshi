@@ -1,0 +1,446 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+:root{
+    --bar1: #5A1236;
+    --bar2: #FFFFFF;
+    --bar3: #333333;
+    --bar4: #000000;
+    --button-bg: #D9D9D9;
+    --button-radius: 1.25rem;
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+
+html{
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    margin:0;
+    color:#000;
+    background:#fff;
+}
+
+/* LOGIN: cuadro de inicio de sesión */
+.formulario-login{
+    max-width:36rem;
+    margin:1.5rem auto;
+    background: var(--button-bg);
+    border-radius:1rem;
+    padding:1.5rem 1.75rem;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    color:#000;
+}
+.formulario-login h3{
+    margin:0 0 0.75rem 0;
+    font-weight:700;
+    text-align:center;
+    font-size:1.125rem;
+}
+.formulario-login form{ margin-top:0.5rem; }
+.formulario-login label{ display:block; margin-top:0.5rem; font-weight:600; }
+.formulario-login input,
+.formulario-login textarea{
+    width:100%;
+    padding:0.6rem;
+    margin:0.4rem 0 1rem 0;
+    border:1px solid #ccc;
+    border-radius:0.5rem;
+    font-family:'Montserrat', sans-serif;
+    font-size:1rem;
+    background:transparent;
+}
+.formulario-login button{
+    width:100%;
+    padding:0.85rem;
+    font-weight:700;
+    border-radius:0.75rem;
+    margin-top:0.5rem;
+    background: #333333;
+    color: #ffffff;
+    display:inline-flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:center;
+    gap:0.75rem;
+    font-family: 'Montserrat', sans-serif;
+    cursor:pointer;
+    border: none;
+    min-height: 2.75rem;
+    font-size:1rem;
+}
+.formulario-login button img{
+    width:1.6rem;
+    height:1.6rem;
+    object-fit:contain;
+    display:block;
+}
+.formulario-login button:active{ transform: translateY(1px); }
+
+/* BOTON LOGIN simple (página loggin.html) */
+.boton-login{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:1.5rem 0;
+    width:100%;
+}
+.boton-login button{
+    display:inline-flex;
+    flex-direction:column;
+    align-items:center;
+    gap:0.4rem;
+    padding:0.75rem 1.5rem;
+    min-width:10rem;
+    background: #333333;
+    color: #ffffff;
+    border: none;
+    border-radius: var(--button-radius);
+    font-family: 'Montserrat', sans-serif;
+    font-weight:700;
+    cursor:pointer;
+}
+.boton-login button img{
+    width:2.2rem;
+    height:2.2rem;
+    object-fit:contain;
+    display:block;
+}
+
+/* BOTONES PRINCIPALES (index) */
+.botones-acciones{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:1rem;
+    max-width:48rem;
+    margin:1rem auto;
+    padding:0 1rem;
+}
+.botones-acciones button{
+    display:inline-flex;
+    flex-direction:column;
+    gap:0.5rem;
+    padding:0.9rem 1rem;
+    min-width:10rem;
+    background: var(--button-bg);
+    color: #000;
+    border: none;
+    border-radius: var(--button-radius);
+    font-family: 'Montserrat', sans-serif;
+    font-weight:700;
+    cursor:pointer;
+    font-size: 1rem;
+}
+.botones-acciones button img{
+    width:2rem;
+    height:2rem;
+    object-fit:contain;
+    display:block;
+}
+
+/* HEADER y BARRAS */
+header{ display:block; margin:0; position:relative; z-index:1; }
+header > *{ margin:0; }
+header .barra-superior{
+    height: 6.25rem;
+    background: var(--bar1);
+}
+header .logos{
+    height: 12.5rem;
+    background: var(--bar2);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:1rem;
+    padding:0 1rem;
+}
+.logo{
+    max-height:9rem;
+    width:auto;
+    display:block;
+}
+header h2.lema{
+    height: 5rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: var(--bar3);
+    color:#fff;
+    font-weight:700;
+    font-size:1.25rem;
+    padding:0 1rem;
+    margin:0;
+}
+header p.subtitulo{
+    height: 5rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: var(--bar4);
+    color:#fff;
+    font-weight:400;
+    font-size:1rem;
+    padding:0 1rem;
+    margin:0;
+}
+header nav.menu{
+    position: absolute;
+    right:1rem;
+    top: 1rem;
+    color:#fff;
+    font-weight:700;
+}
+
+/* IMAGENES a pantalla completa */
+.imagen-ipn,
+.imagen-plantel{
+    height: 19.6875rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#f4f4f4;
+    overflow:hidden;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    margin-top:0;
+}
+.imagen-ipn img,
+.imagen-plantel img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+/* TABLA DE REPORTES */
+.report-table{
+    width:100%;
+    border-collapse:collapse;
+    margin:1rem auto;
+    font-family: 'Montserrat', sans-serif;
+    font-size:1rem;
+    max-width:48rem;
+    overflow:hidden;
+    border-radius:0.5rem;
+}
+.report-table tr{ height:6.5rem; }
+.report-table tr:nth-child(odd){ background:#D9D9D9; color:#000; }
+.report-table tr:nth-child(even){ background:#808080; color:#fff; }
+.report-table td{ padding:0.8rem 1rem; vertical-align:top; border:none; }
+.info .fecha{ font-weight:700; font-size:0.95rem; margin-bottom:0.25rem; }
+.info .numero{ font-size:0.9rem; opacity:0.9; }
+.status-cell{ width:12rem; text-align:right; position:relative; }
+.status{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5rem;
+    justify-content:flex-end;
+    position:absolute;
+    top:0.6rem;
+    right:0.6rem;
+    font-weight:700;
+}
+.dot{ width:0.9rem; height:0.9rem; border-radius:50%; display:inline-block; box-shadow:0 0 0 2px rgba(0,0,0,0.06) inset; }
+.dot.green{ background:#2ecc71; }
+.dot.yellow{ background:#f1c40f; }
+.dot.red{ background:#e74c3c; }
+
+/* BOTONES generales */
+button{
+    background: var(--button-bg);
+    color: #000;
+    border: none;
+    border-radius: var(--button-radius);
+    font-family: 'Montserrat', sans-serif;
+    font-weight:700;
+    padding: 0.75rem 1.25rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform .08s ease;
+    min-height: 2.5rem;
+    min-width: 8rem;
+}
+button img{ width:1.5rem; height:1.5rem; object-fit:contain; display:block; }
+button:active{ transform: translateY(1px); }
+
+@media (max-width:600px){
+    header .logos{ height:10rem; }
+    header h2.lema, header p.subtitulo{ height:4rem; font-size:0.95rem; }
+    .imagen-ipn, .imagen-plantel{ height:14rem; }
+    button{ font-size:0.95rem; padding:0.6rem 1rem; min-width:6.5rem; }
+    .report-table{ max-width:100%; }
+    .status-cell{ width:8rem; }
+    .report-table tr{ height:5.5rem; }
+    .status{ top:0.4rem; right:0.4rem; font-size:0.9rem; }
+}
+
+.boton-login{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:1.5rem 0;
+    width:100%;
+}
+.boton-login button{
+    display:inline-flex;
+    flex-direction:column; 
+    align-items:center;
+    gap:0.4rem;
+    padding:0.75rem 1.5rem;
+    min-width:10rem;
+    background: var(--button-bg); 
+    color: #000; 
+    border: none;
+    border-radius: var(--button-radius);
+    font-family: 'Montserrat', sans-serif;
+    font-weight:700;
+    cursor:pointer;
+}
+.boton-login button img{
+    width:2.2rem;
+    height:2.2rem;
+    object-fit:contain;
+    display:block;
+    }
+
+.formulario-reporte{
+    max-width:48rem;
+    margin:1.5rem auto;
+    background:#ffffff;
+    border-radius:0.75rem;
+    padding:1.25rem 1.5rem;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    font-family: 'Montserrat', sans-serif;
+    color:#000;
+}
+.formulario-reporte form{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:0.75rem;
+}
+.formulario-reporte label{
+    font-weight:700;
+    font-size:0.95rem;
+    margin-bottom:0.25rem;
+}
+.formulario-reporte input,
+.formulario-reporte textarea{
+    width:100%;
+    padding:0.6rem;
+    border:1px solid #ccc;
+    border-radius:0.5rem;
+    font-size:1rem;
+    font-family:'Montserrat',sans-serif;
+    background:transparent;
+    color:#000;
+    resize:vertical;
+}
+.formulario-reporte textarea{ min-height:10rem; }
+.formulario-reporte .actions{ display:flex; justify-content:flex-end; gap:0.75rem; margin-top:0.25rem; }
+.formulario-reporte button{
+    background: var(--button-bg);
+    color:#000;
+    font-weight:700;
+    font-family:'Montserrat',sans-serif;
+    border:none;
+    border-radius:var(--button-radius);
+    padding:0.7rem 1.1rem;
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    gap:0.6rem;
+    min-width:8rem;
+    box-shadow:none;
+}
+.formulario-reporte button img{ width:1.25rem; height:1.25rem; object-fit:contain; display:block; }
+/* pequeño ajuste responsivo */
+@media (max-width:600px){
+    .formulario-reporte{ padding:1rem; margin:1rem; }
+    .formulario-reporte textarea{ min-height:8rem; }
+    .formulario-reporte .actions{ justify-content:center; }
+}
+
+.formulario-reporte{
+    max-width:48rem;
+    margin:1.5rem auto;
+    background:#ffffff;
+    border-radius:0.75rem;
+    padding:1.25rem 1.5rem;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    font-family: 'Montserrat', sans-serif;
+    color:#000;
+}
+.formulario-reporte form{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:0.75rem;
+}
+.formulario-reporte label{
+    font-weight:700;
+    font-size:0.95rem;
+    margin-bottom:0.25rem;
+}
+.formulario-reporte input,
+.formulario-reporte textarea{
+    width:100%;
+    padding:0.6rem;
+    border:1px solid #ccc;
+    border-radius:0.5rem;
+    font-size:1rem;
+    font-family:'Montserrat',sans-serif;
+    background:transparent;
+    color:#000;
+    resize:vertical;
+}
+.formulario-reporte textarea{ min-height:10rem; }
+.formulario-reporte .actions{ display:flex; justify-content:flex-end; gap:0.75rem; margin-top:0.25rem; }
+.formulario-reporte button{
+    background: var(--button-bg);
+    color:#000;
+    font-weight:700;
+    font-family:'Montserrat',sans-serif;
+    border:none;
+    border-radius:var(--button-radius);
+    padding:0.7rem 1.1rem;
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    gap:0.6rem;
+    min-width:8rem;
+    box-shadow:none;
+}
+.formulario-reporte button img{ width:1.25rem; height:1.25rem; object-fit:contain; display:block; }
+@media (max-width:600px){
+    .formulario-reporte{ padding:1rem; margin:1rem; }
+    .formulario-reporte textarea{ min-height:8rem; }
+    .formulario-reporte .actions{ justify-content:center; }
+}
+
+.logos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.logo {
+  width: 6rem; /* ajusta según el tamaño deseado */
+  height: auto;
+}
+
+.izquierda {
+  margin-right: auto;
+}
+
+.derecha {
+  margin-left: auto;
+}
