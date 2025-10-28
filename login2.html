@@ -13,8 +13,8 @@
     <header>
         <div class="barra-superior"></div>
         <div class="logos">
-    <img src="logo-ipn.png" alt="Logo IPN" class="logo izquierda">
-    <img src="logo-cru.png" alt="Logo CRU" class="logo derecha">
+    <img src="./img/logo-ipn.png" alt="Logo IPN" class="logo izquierda">
+    <img src="./img/logo-rcu.jpg" alt="Logo CRU" class="logo derecha">
         </div>
         <h2 class="lema"></h2>
         <p class="subtitulo">Instituto Politécnico Nacional</p>
@@ -31,15 +31,13 @@
             <h3>Instituto Politécnico Nacional</h3>
             <form>
                 <label for="boleta">Boleta:</label>
-                <input type="text" id="boleta" name="boleta">
+                <input type="number" id="boleta" name="boleta">
 
                 <label for="contrasena">Contraseña:</label>
                 <input type="password" id="contrasena" name="contrasena">
 
-                <label for="correo">Correo Institucional:</label>
-                <input type="email" id="correo" name="correo">
-
-                <button type="submit" onclick="login()">
+                
+                <button type="submit" onclick="location.href='index.html'">
                     <img src="icons/login.svg" alt="Iniciar sesión">
                     Iniciar Sesión
                 </button>
