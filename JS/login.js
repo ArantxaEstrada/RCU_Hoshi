@@ -7,8 +7,13 @@ function login() {
         return;
     }
 
-    if(boleta === 2024090213 && password === "1234"){
-        window.location.href = "home2.html";
+    if(boleta.length != 10){
+        alert("La boleta debe tener 10 digitos.");
+        return;
+    }
+
+    if(boleta === "1111111111" && password === "1234"){
+        window.location.href = "./RCU_Hoshi/main.html";
     }
 }
-//Cuando veamos bien la conexion con la base de datos, lo conecto. -Atte Rodrigo (Dev1)
+//Cuando veamos bien la conexion con la base de datos, lo conecto. -Atte. Rodrigo (Dev1)
