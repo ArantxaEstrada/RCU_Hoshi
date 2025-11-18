@@ -1,49 +1,48 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Inicio de sesión Principal</title>
-    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="./CSS/style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=key" />
 </head>
+
 <body>
+    <div class="login-container">
+        <!-- Izquierda: cuadro blanco con logos y formulario -->
+        <aside class="login-left">
+            <div class="logos-top">
+                <img src="./img/logo-ipn.png" alt="Logo IPN" class="logo left">
+                <img src="./img/rcu-logo.png" alt="Logo RCU" class="logo right">
+            </div>
 
+            <div class="login-card">
+                <h1 class="card-title">Instituto Politécnico Nacional</h1>
+                <p class="card-sub">Acceso al sistema</p>
 
-    <header>
-        <div class="barra-superior"></div>
-        <div class="logos">
-    <img src="./img/logo-ipn.png" alt="Logo IPN" class="logo izquierda">
-    <img src="./img/rcu-logo.png" alt="Logo CRU" class="logo derecha">
-        </div>
-        <h2 class="lema"></h2>
-        <p class="subtitulo">Instituto Politécnico Nacional</p>
-    </header>
+                    <form class="login-form" onsubmit="event.preventDefault(); login();">
+                        <label for="boleta">Boleta</label>
+                        <input type="text" id="boleta" name="boleta" autocomplete="username" required />
 
+                        <label for="contrasena">Contraseña</label>
+                        <input type="password" id="contrasena" name="contrasena" autocomplete="current-password" required />
 
-    <main>
-        <div class="imagen-plantel">
-            <img src="./img/plantel.jpg" alt="CECyT 9 Juan de Dios Bátiz">
-        </div>
+                        <button class="btn-login" type="submit">
+                            <span class="material-symbols-outlined" aria-hidden="true">key</span>
+                            Iniciar sesión
+                        </button>
+                    </form>
 
+            </div>
+        </aside>
 
-        <div class="formulario-login">
-            <h3>Instituto Politécnico Nacional</h3>
-            <form>
-                <label for="boleta">Boleta:</label>
-                <input type="number" id="boleta" name="boleta">
+        <!-- Derecha: imagen del plantel -->
+        <section class="login-right">
+            <img src="./img/plantel.jpg" alt="CECyT 9 Juan de Dios Bátiz" class="plantel-image" />
+        </section>
+    </div>
 
-                <label for="contrasena">Contraseña:</label>
-                <input type="password" id="contrasena" name="contrasena">
-
-
-                <button type="button" onclick="login()">
-                    <img src="icons/login.svg" alt="Iniciar sesión">
-                    Iniciar Sesión
-                </button>
-            </form>
-            <script src="./JS/login.js"></script>
-        </div>
-    </main>
-
+    <script src="./JS/login.js"></script>
 </body>
 </html>

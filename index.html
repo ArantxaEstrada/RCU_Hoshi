@@ -4,35 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de sesión</title>
-    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="./CSS/styleli.css">
 </head>
 <body>
 
+<div class="container">
 
-    <header>
-        <div class="barra-superior"></div>
-        <div class="logos">
-    <img src="./img/logo-ipn.png" alt="Logo IPN" class="logo izquierda">
-    <img src="./img/rcu-logo.png" alt="Logo CRU" class="logo derecha">
-        </div>
-        <h2 class="lema"></h2>
-        <p class="subtitulo">Instituto Politécnico Nacional</p>
-    </header>
+    <!-- MITAD IZQUIERDA: SOLO IMAGEN -->
+    <div class="left-panel">
+        <img src="./img/plantel.jpg" alt="CECyT 9 Juan de Dios Bátiz" class="plantel-image">
+    </div>
 
+    <!-- MITAD DERECHA -->
+    <div class="right-panel">
 
-    <main>
-        <div class="imagen-plantel">
-            <img src="./img/plantel.jpg" alt="CECyT 9 Juan de Dios Bátiz">
-        </div>
+        <!-- LOGOS ESQUINAS SUPERIORES -->
+        <img src="./img/logo-ipn.png" alt="Logo IPN" class="logo logo-left">
+        <img src="./img/rcu-logo.png" alt="Logo RCU" class="logo logo-right">
 
+        <!-- CUADRO INTERNO -->
+        <div class="inner-card">
+            <h1 class="card-title">Instituto Politécnico Nacional</h1>
+            <p class="card-sub">Acceso al sistema</p>
 
-        <div class="boton-login">
-            <button onclick="location.href='login.html'">
-                <img src="logotipo" alt="">
-                <span>Iniciar Sesión</span>
+            <button class="btn-login" onclick="location.href='login.html'">
+                Iniciar Sesión
             </button>
         </div>
-    </main>
+
+    </div>
+
+</div>
 
 </body>
 </html>

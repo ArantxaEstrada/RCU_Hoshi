@@ -13,7 +13,7 @@ function login() {
     }
 
     if(boleta === "1111111111" && password === "1234"){
-        window.location.href = "../main.html";
+        window.location.href = "./main.html";
     }
 }
 //Cuando veamos bien la conexion con la base de datos, lo conecto. -Atte. Rodrigo (Dev1)
