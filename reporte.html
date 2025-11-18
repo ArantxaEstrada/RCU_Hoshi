@@ -1,51 +1,60 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generar Reporte</title>
-    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="./CSS/stylerep.css">
 </head>
 <body>
 
     <header>
-        <div class="barra-superior"></div>
-        <div class="logos">
-    <img src="./img/logo-ipn.png" alt="Logo IPN" class="logo izquierda">
-    <a href="./main.html"><img src="./img/rcu-logo.png" alt="Logo CRU" class="logo derecha"></a>
+        <div class="barra-blanca">
+            <img src="./img/logo-ipn.png" alt="Logo IPN" class="logo-izq">
+            <a href="./main.html">
+                <img src="./img/rcu-logo.png" alt="Logo CRU" class="logo-der">
+            </a>
         </div>
-        <h2 class="lema"></h2>
-        <p class="subtitulo">Instituto Politécnico Nacional</p>
+
+        <div class="barra-morada">
+            <h2>MENÚ DE REPORTES</h2>
+        </div>
     </header>
 
     <main>
-        <div class="formulario-reporte">
-            <form>
-                <label for="salon">Salón:</label>
-                <select name="salon" id="salon">
-                    <option value="nadita">Seleccione una opción</option>
-                    <option value="dsw">Desarrollo de Software</option>
-                    <option value="a4">Aula 4.0</option>
-                </select>
+        <div class="contenedor-principal">
 
-                <label for="dispositivo">Dispositivo:</label>
-                <select name="dispositivo" id="dispositivo">
-                    <option value="nadita">Seleccione una opción</option>
-                    <option value="PC">PC</option>
-                    <option value="Proyector">Proyector</option>
-                    <option value="Mouse">Mouse</option>
-                    <option value="Teclado">Teclado</option>
-                    <option value="Pantalla">Pantalla</option>
-                </select>
+            <div class="cuadro-formulario">
 
-                <label for="descripcion">Describe brevemente el problema con el dispositivo:</label>
-                <textarea id="descripcion" name="descripcion" rows="4" cols="50" placeholder="Escribe tu descripción aquí"></textarea>
+                <form>
+                    <label for="salon">Salón:</label>
+                    <select name="salon" id="salon">
+                        <option value="nadita">Seleccione una opción</option>
+                        <option value="dsw">Desarrollo de Software</option>
+                        <option value="a4">Aula 4.0</option>
+                    </select>
 
-                <button type="button" onclick="enviarReporte()">Enviar Reporte</button>
-            </form>
-            <script src="./JS/reportar.js"></script>
+                    <label for="dispositivo">Dispositivo:</label>
+                    <select name="dispositivo" id="dispositivo">
+                        <option value="nadita">Seleccione una opción</option>
+                        <option value="PC">PC</option>
+                        <option value="Proyector">Proyector</option>
+                        <option value="Mouse">Mouse</option>
+                        <option value="Teclado">Teclado</option>
+                        <option value="Pantalla">Pantalla</option>
+                    </select>
+
+                    <label for="descripcion">Describe brevemente el problema:</label>
+                    <textarea id="descripcion" name="descripcion" rows="4" placeholder="Escribe tu descripción aquí"></textarea>
+
+                    <button class="btn-enviar" type="button" onclick="enviarReporte()">Enviar</button>
+                </form>
+
+            </div>
+
         </div>
+
+        <script src="./JS/reportar.js"></script>
     </main>
 
 </body>
