@@ -231,3 +231,22 @@ main {
 .btn-enviar:hover {
     background-color: #7A0B1E;
 }
+
+.btn-volver {
+    margin-top: 10px;
+    width: 180px;
+    border: none;
+    background-color: #5A1236;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 12px;
+    transition: 0.3s;
+    align-self: flex-end;
+}
+.btn-volver:hover {
+    background-color: #7A0B1E;
+}
+

@@ -11,7 +11,7 @@
     <header>
         <div class="barra-blanca">
             <img src="./img/logo-ipn.png" alt="Logo IPN" class="logo-izq">
-            <a href="./main.html">
+            
                 <img src="./img/rcu-logo.png" alt="Logo CRU" class="logo-der">
             </a>
         </div>
@@ -25,6 +25,8 @@
         <div class="contenedor-principal">
 
             <div class="cuadro-formulario">
+                <h1 class="card-title">Instituto Politécnico Nacional</h1>
+                <p class="card-sub">Reporte de Problemas</p>
 
                 <form>
                     <label for="salon">Salón:</label>
@@ -47,7 +49,16 @@
                     <label for="descripcion">Describe brevemente el problema:</label>
                     <textarea id="descripcion" name="descripcion" rows="4" placeholder="Escribe tu descripción aquí"></textarea>
 
-                    <button class="btn-enviar" type="button" onclick="enviarReporte()">Enviar</button>
+                    <div class="botones-fila">
+                        <button class="btn-enviar" type="button" onclick="enviarReporte()">
+                            Enviar
+                        </button>
+
+                        <button class="btn-volver" type="button" onclick="location.href='main.html'">
+                            Volver al Menú
+                        </button>
+                    </div>
+
                 </form>
 
             </div>
