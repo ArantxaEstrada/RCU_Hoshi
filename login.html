@@ -2,45 +2,46 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inicio de sesión Principal</title>
-    <link rel="stylesheet" href="./CSS/style.css" />
+    <link rel="stylesheet" href="./CSS/styleli.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=key" />
 </head>
 
 <body>
-    <div class="login-container">
-        <!-- Izquierda: cuadro blanco con logos y formulario -->
-        <aside class="login-left">
-            <div class="logos-top">
-                <img src="./img/logo-ipn.png" alt="Logo IPN" class="logo left">
-                <img src="./img/rcu-logo.png" alt="Logo RCU" class="logo right">
-            </div>
+    
+    <div class="container">
 
-            <div class="login-card">
+        <div class="left-panel">
+            <img src="./img/plantel.jpg" alt="CECyT 9 Juan de Dios Bátiz" class="plantel-image">
+        </div>
+
+        <div class="right-panel">
+
+            <img src="./img/logo-ipn.png" alt="Logo IPN" class="logo logo-left">
+            <img src="./img/rcu-logo.png" alt="Logo RCU" class="logo logo-right">
+
+            <div class="inner-card">
                 <h1 class="card-title">Instituto Politécnico Nacional</h1>
                 <p class="card-sub">Acceso al sistema</p>
 
-                    <form class="login-form" onsubmit="event.preventDefault(); login();">
-                        <label for="boleta">Boleta</label>
-                        <input type="text" id="boleta" name="boleta" autocomplete="username" required />
+                <form class="login-form" onsubmit="event.preventDefault(); login();">
 
-                        <label for="contrasena">Contraseña</label>
-                        <input type="password" id="contrasena" name="contrasena" autocomplete="current-password" required />
+                    <label for="boleta">Boleta</label>
+                    <input type="text" id="boleta" name="boleta" autocomplete="username" required />
 
-                        <button class="btn-login" type="submit">
-                            <span class="material-symbols-outlined" aria-hidden="true">key</span>
-                            Iniciar sesión
-                        </button>
-                    </form>
+                    <label for="contrasena">Contraseña</label>
+                    <input type="password" id="contrasena" name="contrasena" autocomplete="current-password" required />
+
+                    <button class="btn-login" type="submit">
+                        <span class="material-symbols-outlined" aria-hidden="true">key</span>
+                        Iniciar sesión
+                    </button>
+                </form>
 
             </div>
-        </aside>
+        </div>
 
-        <!-- Derecha: imagen del plantel -->
-        <section class="login-right">
-            <img src="./img/plantel.jpg" alt="CECyT 9 Juan de Dios Bátiz" class="plantel-image" />
-        </section>
     </div>
 
     <script src="./JS/login.js"></script>
