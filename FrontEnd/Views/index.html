@@ -1,38 +1,37 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio de sesión</title>
-    <link rel="stylesheet" href="/FrontEnd/CSS/styleli.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inicio de sesión</title>
+  <link rel="stylesheet" href="/FrontEnd/CSS/styleli.css" />
 </head>
 <body>
 
-<div class="container">
+  <div class="container">
 
     <div class="left-panel">
-        <img src="/FrontEnd/img/plantel.jpg" alt="CECyT 9 Juan de Dios Bátiz" class="plantel-image">
+      <img src="/FrontEnd/img/plantel.jpg" alt="CECyT 9 Juan de Dios Bátiz" class="plantel-image" />
     </div>
 
     <div class="right-panel">
+      <div>
+        <img src="/FrontEnd/img/logo-ipn.png" alt="Logo IPN" class="logo logo-left" />
+        <img src="/FrontEnd/img/rcu-logo.png" alt="Logo RCU" class="logo logo-right" />
+      </div>
 
-        <div>
-        <img src="/FrontEnd/img/logo-ipn.png" alt="Logo IPN" class="logo logo-left">
-        <img src="/FrontEnd/img/rcu-logo.png" alt="Logo RCU" class="logo logo-right">
-        </div>
-       <div class="inner-card">
-    <h1 class="card-title">Instituto Politécnico Nacional</h1>
-    <p class="card-sub">Acceso al sistema</p>
+      <div class="inner-card">
+        <h1 class="card-title">Instituto Politécnico Nacional</h1>
+        <p class="card-sub">Acceso al sistema</p>
 
-    <button class="btn-login" onclick="location.href='login.html'">
-        Iniciar Sesión
-    </button>
-</div>
-
-
+        <button class="btn-login" data-action="login">
+          Iniciar Sesión
+        </button>
+      </div>
     </div>
 
-</div>
+  </div>
 
+  <script src="/FrontEnd/JS/inicioSesion.js"></script>
 </body>
 </html>

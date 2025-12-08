@@ -1,19 +1,34 @@
-// Validar inicio de sesion
-function login() {
-    var boleta = document.getElementById("boleta").value;
-    var password = document.getElementById("contrasena").value;
-    if(boleta === null || password === null || boleta.length === 0 || password.length === 0){
-        alert("Por favor, complete todos los campos.");
-        return;
-    }
 
-    if(boleta.length != 10){
-        alert("La boleta debe tener 10 digitos.");
-        return;
-    }
+async function login() {
+  const boleta = document.getElementById("boleta").value.trim();
+  const contrasena = document.getElementById("contrasena").value.trim();
 
-    if(boleta === "1111111111" && password === "1234"){
-        window.location.href = "./main.html";
+  if (!/^\d{10}$/.test(boleta)) {
+    alert("La boleta debe contener exactamente 10 dígitos.");
+    return;
+  }
+
+  if (contrasena.length < 6) {
+    alert("La contraseña debe tener al menos 6 caracteres.");
+    return;
+  }
+
+  try {
+    const response = await fetch("/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ boleta, contrasena }),
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      window.location.href = "/main.html";
+    } else {
+      alert(result.message || "Credenciales incorrectas.");
     }
+  } catch (error) {
+    console.error("Error en login:", error);
+    alert("Hubo un problema al iniciar sesión. Intenta más tarde.");
+  }
 }
-//Cuando veamos bien la conexion con la base de datos, lo conecto. -Atte. Rodrigo (Dev1)

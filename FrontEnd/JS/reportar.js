@@ -1,25 +1,49 @@
+
 function enviarReporte() {
-    const salon = document.getElementById("salon").value;
-    const dispositivo = document.getElementById("dispositivo").value;
-    const descripcion = document.getElementById("descripcion").value.trim();
+  const salon = document.getElementById("salon").value;
+  const dispositivo = document.getElementById("dispositivo").value;
+  const descripcion = document.getElementById("descripcion").value.trim();
 
-    if (salon === "nadita" || dispositivo === "nadita" || descripcion === "") {
-        alert("Por favor completa todos los campos.");
-        return;
-    }
+  if (salon === "nadita") {
+    alert("Por favor selecciona un salón.");
+    return;
+  }
 
-    const reporte = {
-        salon,
-        dispositivo,
-        descripcion,
-        fecha: new Date().toISOString()
-    };
+  if (dispositivo === "nadita") {
+    alert("Por favor selecciona un dispositivo.");
+    return;
+  }
 
-    const blob = new Blob([JSON.stringify(reporte, null, 2)], { type: "application/json" });
-    const enlace = document.createElement("a");
-    enlace.href = URL.createObjectURL(blob);
-    enlace.download = `reporte_${Date.now()}.json`;
-    enlace.click();
+  if (descripcion.length < 10) {
+    alert("La descripción debe tener al menos 10 caracteres.");
+    return;
+  }
 
-    alert("Reporte generado y descargado como JSON.");
+  fetch("/reportes/generar", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ salon, dispositivo, descripcion }),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.success) {
+        alert("Reporte enviado correctamente.");
+        window.location.href = "main.html";
+      } else {
+        alert(data.message || "Error al enviar el reporte.");
+      }
+    })
+    .catch((err) => {
+      console.error("Error:", err);
+      alert("Hubo un problema al enviar el reporte.");
+    });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const volverBtn = document.querySelector(".btn-volver");
+  if (volverBtn) {
+    volverBtn.addEventListener("click", () => {
+      window.location.href = "main.html";
+    });
+  }
+});
