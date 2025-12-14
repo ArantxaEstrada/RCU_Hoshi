@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inicio de sesión Principal</title>
+  <link rel="stylesheet" href="/FrontEnd/CSS/styleli.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="left-panel">
+      <img src="/FrontEnd/img/plantel.jpg" alt="CECyT 9 Juan de Dios Bátiz" class="plantel-image" />
+    </div>
+
+    <div class="right-panel">
+      <img src="/FrontEnd/img/logo-ipn.png" alt="Logo IPN" class="logo logo-left" />
+      <img src="/FrontEnd/img/rcu-logo.png" alt="Logo RCU" class="logo logo-right" />
+
+      <div class="inner-card">
+        <h1 class="card-title">Instituto Politécnico Nacional</h1>
+        <p class="card-sub">Acceso al sistema</p>
+
+        <form class="login-form">
+          <label for="boleta">Boleta</label>
+          <input type="text" id="boleta" name="boleta" autocomplete="username" required />
+
+          <label for="contrasena">Contraseña</label>
+          <input type="password" id="contrasena" name="contrasena" autocomplete="current-password" required />
+
+          <button class="btn-login" type="submit">
+            <span class="material-symbols-outlined" aria-hidden="true">key</span>
+            Iniciar sesión
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="/FrontEnd/JS/login.js"></script>
+</body>
+</html>

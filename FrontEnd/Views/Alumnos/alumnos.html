@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestión de Alumnos</title>
+  <link rel="stylesheet" href="/FrontEnd/CSS/styleli.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <div class="left-panel">
+      <img src="/FrontEnd/img/plantel.jpg" alt="Imagen del plantel" class="plantel-image" />
+    </div>
+
+    <div class="right-panel">
+      <img src="/FrontEnd/img/logo-ipn.png" alt="Logo IPN" class="logo logo-left" />
+      <img src="/FrontEnd/img/rcu-logo.png" alt="Logo secundario" class="logo logo-right" />
+
+      <div class="inner-card">
+        <h1 class="card-title">Gestión de alumnos</h1>
+        <p class="card-sub">Selecciona una acción para gestionar alumnos</p>
+
+        <div class="botones-acciones">
+          <button class="btn-action" data-action="agregar">
+            <span class="material-symbols-outlined">person_add</span>
+            Agregar alumno
+          </button>
+
+          <button class="btn-action" data-action="eliminar">
+            <span class="material-symbols-outlined">person_remove</span>
+            Eliminar alumno
+          </button>
+
+          <button class="btn-action" data-action="editar">
+            <span class="material-symbols-outlined">edit</span>
+            Editar alumno
+          </button>
+
+          <button class="btn-action" data-action="buscar">
+            <span class="material-symbols-outlined">search</span>
+            Buscar alumno
+          </button>
+
+          <button class="btn-action" data-action="volver">
+            <span class="material-symbols-outlined">arrow_back</span>
+            Volver
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/FrontEnd/JS/gestionAlumnos.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Editar Alumno</title>
+  <link rel="stylesheet" href="/FrontEnd/CSS/styleli.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <div class="left-panel">
+      <img src="/FrontEnd/img/plantel.jpg" alt="Imagen del plantel" class="plantel-image" />
+    </div>
+
+    <div class="right-panel">
+      <img src="/FrontEnd/img/logo-ipn.png" alt="Logo IPN" class="logo logo-left" />
+      <img src="/FrontEnd/img/rcu-logo.png" alt="Logo RCU" class="logo logo-right" />
+
+      <div class="inner-card">
+        <h1 class="card-title">EDITAR ALUMNO</h1>
+        <p class="card-sub">Modifica los datos del alumno y guarda los cambios</p>
+
+        <form class="login-form" action="/alumnos/editar" method="POST">
+          <label for="nombre">Nombre del alumno</label>
+          <input type="text" id="nombre" name="nombre" required />
+
+          <label for="boleta">Boleta del alumno</label>
+          <input type="text" id="boleta" name="boleta" required />
+
+          <label for="correo">Correo del alumno</label>
+          <input type="email" id="correo" name="correo" required />
+
+          <button type="submit" class="btn-login">
+            <span class="material-symbols-outlined">edit</span>
+            Editar alumno
+          </button>
+        </form>
+
+        <div style="margin-top: 1.5rem;">
+          <button class="btn-action" data-action="volver">
+            <span class="material-symbols-outlined">arrow_back</span>
+            Volver
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/FrontEnd/JS/editarAlumno.js"></script>
+</body>
+</html>
