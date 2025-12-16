@@ -64,7 +64,7 @@ main {
     align-items: flex-start;
     padding: 20px 0;
 
-    position: relative; 
+    position: relative;
 
     background-image: url("../img/plantel.jpg"); /* Ajusta ruta si es necesario */
     background-size: cover;
@@ -79,8 +79,8 @@ main::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.55); 
-    z-index: 1; 
+    background-color: rgba(0, 0, 0, 0.55);
+    z-index: 1;
 }
 
 main > * {
@@ -119,6 +119,19 @@ main > * {
     margin-bottom: 15px;
     background-color: #fafafa;
     box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    gap: 15px;
+    min-height: 70px;
+}
+
+.info {
+    flex: 1;
+    min-width: 0;
+}
+
+.info .fecha {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 4px;
 }
 
 .info .numero {
@@ -126,15 +139,19 @@ main > * {
     font-weight: bold;
     color: #5A1236;
     margin-top: 4px;
+    word-break: break-word;
 }
 
 .status {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
-    padding: 5px 12px;
+    padding: 8px 15px;
     border-radius: 8px;
     color: white;
     text-align: center;
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-width: 110px;
 }
 
 .status.green { background-color: #28a745; }
@@ -178,9 +195,9 @@ main > * {
 }
 
 .lista-reportes {
-    max-height: 350px;     
-    overflow-y: auto;     
-    padding-right: 5px;    
+    max-height: 350px;
+    overflow-y: auto;
+    padding-right: 5px;
 }
 
 

@@ -22,21 +22,24 @@
         <p class="card-sub">Reporte de Problemas</p>
 
         <form class="form-reporte">
+          <label for="edificio">Edificio:</label>
+          <select name="edificio" id="edificio">
+            <option value="">Selecciona un edificio</option>
+          </select>
+
+          <label for="area">Área:</label>
+          <select name="area" id="area" disabled>
+            <option value="">Selecciona un área</option>
+          </select>
+
           <label for="salon">Salón:</label>
-          <select name="salon" id="salon">
-            <option value="nadita">Seleccione una opción</option>
-            <option value="dsw">Desarrollo de Software</option>
-            <option value="a4">Aula 4.0</option>
+          <select name="salon" id="salon" disabled>
+            <option value="">Selecciona un salón</option>
           </select>
 
           <label for="dispositivo">Dispositivo:</label>
-          <select name="dispositivo" id="dispositivo">
-            <option value="nadita">Seleccione una opción</option>
-            <option value="PC">PC</option>
-            <option value="Proyector">Proyector</option>
-            <option value="Mouse">Mouse</option>
-            <option value="Teclado">Teclado</option>
-            <option value="Pantalla">Pantalla</option>
+          <select name="dispositivo" id="dispositivo" disabled>
+            <option value="">Selecciona un dispositivo</option>
           </select>
 
           <label for="descripcion">Describe brevemente el problema:</label>

@@ -1,5 +1,3 @@
-
-
 document.addEventListener("DOMContentLoaded", () => {
   const volverBtn = document.querySelector(".btn-action");
 
