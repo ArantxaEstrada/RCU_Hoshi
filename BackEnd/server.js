@@ -2,6 +2,7 @@ import express from 'express';
 import session from 'express-session';
 import path from 'path';
 import dotenv from 'dotenv';
+import { fileURLToPath } from 'url';
 import supabase from './dbconfig.js';
 import routes from './routes.js';
 
@@ -10,17 +11,20 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// __dirname apunta a BackEnd; definimos rootDir como la carpeta del proyecto
-const backendDir = path.resolve();
-const rootDir = path.join(backendDir, '..');
+// Resolver rutas absolutas de forma robusta en ESM
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename); // .../RCU_Hoshi/BackEnd
+// Raíz del proyecto (carpeta que contiene FrontEnd y BackEnd)
+const rootDir = path.resolve(__dirname, '..'); // .../RCU_Hoshi
 
 // Configuración de middlewares
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Servir archivos estáticos desde FrontEnd (CSS, JS, img)
-app.use(express.static(path.join(rootDir, 'FrontEnd')));
-// 2) Sirve con prefijo /FrontEnd para coincidir con enlaces existentes
-app.use('/FrontEnd', express.static(path.join(rootDir, 'FrontEnd')));
+const publicDir = path.join(rootDir, 'FrontEnd');
+app.use(express.static(publicDir));
+// También con prefijo /FrontEnd (los enlaces actuales usan este prefijo)
+app.use('/FrontEnd', express.static(publicDir));
 
 // Configuración de sesiones
 app.use(session({
@@ -47,5 +51,7 @@ app.use((req, res) => {
 });
 
 app.listen(PORT, () => {
-  });
+  // eslint-disable-next-line no-console
+  console.log(`Servidor escuchando en puerto ${PORT}`);
+});
 

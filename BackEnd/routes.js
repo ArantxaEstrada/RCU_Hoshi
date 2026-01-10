@@ -31,10 +31,17 @@ import {
     obtenerDispositivosInforme
 } from './controller.js';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
 const router = Router();
-const backendDir = path.resolve();
-const rootDir = path.join(backendDir, '..');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const rootDir = path.resolve(__dirname, '..');
+
+// Health check para Render/monitoring
+router.get('/health', (req, res) => {
+  res.status(200).json({ status: 'ok', timestamp: new Date().toISOString() });
+});
 
 // Rutas de autenticación
 router.post('/login', login);
