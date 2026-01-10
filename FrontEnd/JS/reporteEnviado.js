@@ -1,9 +1,10 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-  const volverBtn = document.querySelector(".btn-enviar");
+  const volverBtn = document.querySelector('[data-action="volver"]');
   if (volverBtn) {
     volverBtn.addEventListener("click", () => {
-      window.location.href = "main.html";
+      window.location.href = "/main";
     });
   }
 });
+

@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const acciones = {
-    ver: "visreportesad.ejs",
-    completados: "visreportescompad.ejs",
-    volver: "main.html"
+    ver: "/gestion-reportes",
+    completados: "/reportes-completados",
+    volver: "/main"
   };
 
   document.querySelectorAll(".btn-action").forEach((btn) => {

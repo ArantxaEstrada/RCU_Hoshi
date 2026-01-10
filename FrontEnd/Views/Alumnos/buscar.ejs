@@ -21,11 +21,13 @@
         <h1 class="card-title">BUSCAR ALUMNO</h1>
         <p class="card-sub">Ingresa la boleta para consultar información</p>
 
-        <form class="login-form" action="/alumnos/buscar" method="POST">
+        <div id="errorContainer" class="error-message"></div>
+
+        <form class="login-form" id="formBuscar">
           <label for="boleta">Boleta del alumno</label>
           <input type="text" id="boleta" name="boleta" required />
 
-          <button type="submit" class="btn-login">
+          <button type="submit" class="btn-login" id="btnBuscar">
             <span class="material-symbols-outlined">search</span>
             Buscar
           </button>
