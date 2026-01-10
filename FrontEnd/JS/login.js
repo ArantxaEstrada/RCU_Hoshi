@@ -115,8 +115,7 @@ async function login() {
       alert(result.message || "Credenciales incorrectas.");
     }
   } catch (error) {
-    console.error("Error en login:", error);
-    alert("Hubo un problema al iniciar sesión. Intenta más tarde.");
+        alert("Hubo un problema al iniciar sesión. Intenta más tarde.");
   }
 }
 
@@ -136,8 +135,7 @@ async function logout() {
       alert(result.message || "Error al cerrar sesión.");
     }
   } catch (error) {
-    console.error("Error en logout:", error);
-    alert("Hubo un problema al cerrar sesión.");
+        alert("Hubo un problema al cerrar sesión.");
   }
 }
 
@@ -152,7 +150,7 @@ async function verificarSesion() {
     const result = await response.json();
     return result.success;
   } catch (error) {
-    console.error("Error al verificar sesión:", error);
-    return false;
+        return false;
   }
 }
+

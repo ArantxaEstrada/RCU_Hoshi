@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const acciones = {
-    pendientes: "visreportesad.ejs",
-    completados: "visreportescompad.ejs",
+    pendientes: "/reportes-pendientes",
+    completados: "/reportes-completados",
     volver: "/main"
   };
 
@@ -14,3 +14,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+

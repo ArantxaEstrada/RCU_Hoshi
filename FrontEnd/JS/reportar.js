@@ -118,8 +118,7 @@ async function cargarTodo() {
     dispositivos = dataDisp.dispositivos || [];
     inventario = dataInv.inventario || [];
   } catch (err) {
-    console.error('Error al cargar datos:', err);
-    alert('Error al cargar catálogos');
+        alert('Error al cargar catálogos');
   }
 }
 
@@ -168,3 +167,4 @@ async function enviarReporte() {
     alert(data.message || "Error al enviar el reporte.");
   }
 }
+

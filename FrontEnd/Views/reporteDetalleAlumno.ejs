@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalle del Reporte</title>
+  <link rel="stylesheet" href="/FrontEnd/CSS/stylerep.css">
+</head>
+<body>
+  <header>
+    <div class="barra-blanca">
+      <img src="/FrontEnd/img/logo-ipn.png" alt="Logo IPN" class="logo-izq">
+      <h2>DETALLE DEL REPORTE</h2>
+      <img src="/FrontEnd/img/rcu-logo.png" alt="Logo CRU" class="logo-der">
+    </div>
+  </header>
+
+  <main>
+    <div class="contenedor-principal">
+      <div class="cuadro-formulario">
+        <h1 class="card-title">Instituto Politécnico Nacional</h1>
+        <p class="card-sub">Información del Reporte</p>
+
+        <div id="error-container"></div>
+
+        <div class="detalle-container" id="detalle-container">
+          <div class="loading">
+            <p>Cargando detalles...</p>
+          </div>
+        </div>
+
+        <div class="botones-fila">
+          <button class="btn-enviar" type="button" data-action="volver">
+            Volver
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="/FrontEnd/JS/reporteDetalleAlumno.js"></script>
+</body>
+</html>

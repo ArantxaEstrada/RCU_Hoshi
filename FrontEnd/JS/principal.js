@@ -13,8 +13,7 @@ async function verificarSesion() {
       window.location.href = "/sesion-expirada";
     }
   } catch (error) {
-    console.error("Error al verificar sesión:", error);
-    window.location.href = "/sesion-expirada";
+        window.location.href = "/sesion-expirada";
   }
 }
 
@@ -57,11 +56,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   const acciones = {
     reporte: "/reporte",
     consulta: "/consulta",
-    visreportes: "/FrontEnd/Views/Reportes/reportes.html",
+    visreportes: "/gestion-reportes",
     "informe-tecnico": "/informe-tecnico",
-    alumnos: "/FrontEnd/Views/Alumnos/alumnos.html",
-    tecnicos: "/FrontEnd/Views/Tecnicos/tecnicos.html",
-    dispositivos: "/FrontEnd/Views/Dispositivos/dispositivos.html"
+    alumnos: "/alumnos",
+    tecnicos: "/tecnicos",
+    dispositivos: "/dispositivos"
   };
 
   document.querySelectorAll(".btn-action").forEach((btn) => {
@@ -93,8 +92,7 @@ async function obtenerPerfil() {
     }
     return null;
   } catch (error) {
-    console.error("Error al obtener perfil:", error);
-    return null;
+        return null;
   }
 }
 
@@ -136,7 +134,7 @@ async function logout() {
       alert(result.message || "Error al cerrar sesión.");
     }
   } catch (error) {
-    console.error("Error en logout:", error);
-    alert("Hubo un problema al cerrar sesión.");
+        alert("Hubo un problema al cerrar sesión.");
   }
 }
+

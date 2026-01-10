@@ -214,4 +214,148 @@ main > * {
     background: #555;
 }
 
+.detalle-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0;
+}
 
+.detalle-item {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.detalle-label {
+    font-weight: bold;
+    color: #5A1236;
+    font-size: 14px;
+}
+
+.detalle-valor {
+    color: #333;
+    font-size: 14px;
+    word-break: break-word;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    width: fit-content;
+}
+
+.status-badge.status-pendiente {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.status-badge.status-completado {
+    background-color: #28a745;
+}
+
+.status-badge.status-sin-asignar {
+    background-color: #dc3545;
+}
+
+.loading {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+}
+
+.botones-fila {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.table-container {
+    width: 100%;
+    margin: 20px 0;
+    overflow-x: auto;
+}
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table-container thead {
+    background-color: #5A1236;
+    color: white;
+}
+
+.table-container th {
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.table-container td {
+    padding: 12px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 14px;
+}
+
+.table-container tbody tr {
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.table-container tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+.status-cell {
+    text-align: center;
+}
+
+.status-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.status-dot.pendiente {
+    background-color: #ffc107;
+}
+
+.status-dot.completado {
+    background-color: #28a745;
+}
+
+.no-data {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+    font-size: 16px;
+}
+
+.error-message {
+    background-color: #ffebee;
+    color: #d32f2f;
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    text-align: center;
+}

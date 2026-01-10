@@ -1,0 +1,260 @@
+/* Estilos para el informe del técnico */
+.search-section { display: none; }
+.search-section.show { display: block; }
+
+/* Barra compacta */
+.informe-toolbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+/* Panel plegable */
+.search-dropdown {
+    display: none;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+}
+.search-dropdown.show { display: block; }
+
+.search-row {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+.search-row input {
+    flex: 1 1 180px;
+    min-width: 0;
+}
+.search-row .btn-action {
+    flex: 0 0 auto;
+}
+
+@media (max-width: 600px) {
+    .search-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .search-row .btn-action {
+        width: 100%;
+    }
+}
+
+/* Scroll completo del card en informe técnico */
+.informe-page .right-panel {
+    align-items: stretch;
+}
+
+.informe-page .inner-card {
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+}
+
+.form-scroll {
+    max-height: 600px;
+    overflow-y: auto;
+    padding-right: 1rem;
+    margin: 1.5rem 0;
+}
+
+.info-section {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: #f5f5f5;
+    border-radius: 6px;
+}
+
+.info-label {
+    font-weight: bold;
+    color: #5A1236;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.info-value {
+    color: #333;
+    word-break: break-word;
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.stat-box {
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+.stat-box.total {
+    background-color: #5A1236;
+}
+
+.stat-box.pendientes {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.stat-box.proceso {
+    background-color: #ff9800;
+    color: white;
+}
+
+.stat-box.completados {
+    background-color: #28a745;
+}
+
+.stat-number {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+}
+
+.reports-section {
+    margin: 1.5rem 0;
+}
+
+.section-title {
+    font-weight: bold;
+    color: #5A1236;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #5A1236;
+    padding-bottom: 0.5rem;
+}
+
+.reports-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.report-item {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.report-item:hover {
+    background-color: #f0f0f0;
+    border-color: #5A1236;
+}
+
+.report-item.selected {
+    background-color: #e8d4dd;
+    border-color: #5A1236;
+    border-width: 2px;
+}
+
+.report-id {
+    font-weight: bold;
+    color: #5A1236;
+    margin-bottom: 0.3rem;
+}
+
+.report-date {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 0.3rem;
+}
+
+.report-status {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.report-status.status-0 {
+    background-color: #dc3545;
+    color: white;
+}
+
+.report-status.status-1 {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.report-status.status-2 {
+    background-color: #28a745;
+    color: white;
+}
+
+.report-detail-card {
+    display: none;
+    padding: 1.5rem;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+}
+
+.report-detail-card.show {
+    display: block;
+}
+
+.detail-row {
+    display: flex;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.detail-label {
+    font-weight: bold;
+    color: #5A1236;
+    width: 40%;
+    min-width: 150px;
+}
+
+.detail-value {
+    flex: 1;
+    color: #333;
+    word-break: break-word;
+}
+
+.empty-message {
+    text-align: center;
+    padding: 2rem;
+    color: #999;
+    font-style: italic;
+}
+
+.error-message {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #ffebee;
+    border: 1px solid #ef5350;
+    border-radius: 4px;
+    color: #c62828;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+}
+
+.btn-small {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+}
+
+.mt-1-5 {
+    margin-top: 1.5rem;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eliminar Técnico</title>
+  <link rel="stylesheet" href="/FrontEnd/CSS/styleli.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <div class="left-panel">
+      <img src="/FrontEnd/img/plantel.jpg" alt="Imagen del plantel" class="plantel-image" />
+    </div>
+
+    <div class="right-panel">
+      <img src="/FrontEnd/img/logo-ipn.png" alt="Logo IPN" class="logo logo-left" />
+      <img src="/FrontEnd/img/rcu-logo.png" alt="Logo RCU" class="logo logo-right" />
+
+      <div class="inner-card" id="mainContainer">
+        <h1 class="card-title">ELIMINAR TÉCNICO</h1>
+        <p class="card-sub">Confirma los datos del técnico a dar de baja</p>
+
+        <div id="errorContainer" class="error-message"></div>
+
+        <div style="background: #f5f5f5; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
+          <div style="margin-bottom: 0.75rem;">
+            <label style="font-size: 0.875rem; color: #666;">Nombre completo</label>
+            <p id="nombreTecnico" style="margin: 0.5rem 0 0 0; font-size: 1rem; color: #333;"></p>
+          </div>
+          <div style="margin-bottom: 0.75rem;">
+            <label style="font-size: 0.875rem; color: #666;">ID</label>
+            <p id="idTecnico" style="margin: 0.5rem 0 0 0; font-size: 1rem; color: #333;"></p>
+          </div>
+          <div>
+            <label style="font-size: 0.875rem; color: #666;">Correo</label>
+            <p id="correoTecnico" style="margin: 0.5rem 0 0 0; font-size: 1rem; color: #333;"></p>
+          </div>
+        </div>
+
+        <form class="login-form" id="formEliminar">
+          <p style="font-size: 1rem; color: #b91c1c; margin-bottom: 1rem; font-weight: 600;">
+            Para confirmar la eliminación, ingresa tus credenciales:
+          </p>
+
+          <label for="identificador">Tu identificador (admin)</label>
+          <input type="number" id="identificador" name="identificador" placeholder="Número de trabajador" required />
+
+          <label for="password">Tu contraseña</label>
+          <input type="password" id="password" name="password" placeholder="Contraseña" required />
+
+          <button type="submit" class="btn-login" id="btnEliminar">
+            <span class="material-symbols-outlined">delete</span>
+            Eliminar técnico
+          </button>
+        </form>
+
+        <div style="margin-top: 1.5rem;">
+          <button class="btn-action" data-action="volver">
+            <span class="material-symbols-outlined">arrow_back</span>
+            Volver
+          </button>
+        </div>
+      </div>
+
+      <!-- Pantalla de confirmación (como en React Native) -->
+      <div id="confirmContainer" style="display: none; flex-direction: column; justify-content: center; align-items: center; min-height: calc(100vh - 200px); gap: 2rem; padding: 2rem;">
+        <div style="text-align: center;">
+          <p style="font-size: 1.25rem; color: #333; font-weight: 600; margin: 0;">Técnico eliminado exitosamente</p>
+        </div>
+        <button class="btn-login" id="btnVolverConfirm" style="width: 80%; max-width: 300px;">
+          <span class="material-symbols-outlined">arrow_back</span>
+          Volver a Técnicos
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/FrontEnd/JS/eliminarTecnico.js"></script>
+</body>
+</html>

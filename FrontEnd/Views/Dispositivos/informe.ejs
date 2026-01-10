@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Informe de Dispositivos</title>
+  <link rel="stylesheet" href="/FrontEnd/CSS/styleli.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <div class="left-panel">
+      <img src="/FrontEnd/img/plantel.jpg" alt="Imagen del plantel" class="plantel-image" />
+    </div>
+
+    <div class="right-panel">
+      <img src="/FrontEnd/img/logo-ipn.png" alt="Logo IPN" class="logo logo-left" />
+      <img src="/FrontEnd/img/rcu-logo.png" alt="Logo RCU" class="logo logo-right" />
+
+      <div class="inner-card">
+        <h1 class="card-title">Informe de dispositivos</h1>
+        <p class="card-sub">Filtra por salón para ver el inventario</p>
+
+        <div id="errorContainer" class="error-message"></div>
+
+        <label for="salon" class="info-label">Selecciona un salón</label>
+        <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem;">
+          <select id="salon" style="flex: 1;">
+            <option value="">Selecciona un salón</option>
+          </select>
+          <button class="btn-login" onclick="cargarInforme()" style="flex: 0 0 auto; width: auto; padding: 0.75rem 1.5rem;">
+            <span class="material-symbols-outlined">search</span>
+            Cargar
+          </button>
+        </div>
+
+        <div class="form-scroll" id="statsSection" style="display: none;">
+          <div class="stats-container">
+            <div class="stat-box total">
+              <div class="stat-number" id="statTotal">0</div>
+              <div class="stat-label">Total</div>
+            </div>
+            <div class="stat-box completados">
+              <div class="stat-number" id="statActivos">0</div>
+              <div class="stat-label">Activos</div>
+            </div>
+            <div class="stat-box pendientes">
+              <div class="stat-number" id="statInactivos">0</div>
+              <div class="stat-label">Inactivos</div>
+            </div>
+          </div>
+
+          <div class="reports-section">
+            <div class="section-title">Dispositivos</div>
+            <div class="reports-list" id="listaDispositivos">
+              <div class="empty-message">No hay dispositivos</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-1-5">
+          <button class="btn-action" data-action="volver">
+            <span class="material-symbols-outlined">arrow_back</span>
+            Volver
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/FrontEnd/JS/informeDispositivo.js"></script>
+</body>
+</html>

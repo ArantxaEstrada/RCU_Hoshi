@@ -2,11 +2,9 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   const acciones = {
-    agregar: "agregar.html",
-    eliminar: "eliminar.html",
-    editar: "editar.html",
-    buscar: "buscar.html",
-    volver: "../main.html"
+    agregar: "/alumnos/agregar",
+    buscar: "/alumnos/buscar",
+    volver: "/main"
   };
 
   document.querySelectorAll(".btn-action").forEach((btn) => {

@@ -36,11 +36,9 @@ async function cargarReportes() {
     if (response.ok && result.success) {
       renderizarReportes(result.reportes);
     } else {
-      console.error('Error al cargar reportes:', result.message);
-    }
+          }
   } catch (error) {
-    console.error('Error al cargar reportes:', error);
-  }
+      }
 }
 
 function renderizarReportes(reportes) {
@@ -91,39 +89,8 @@ function renderizarReportes(reportes) {
 }
 
 async function mostrarDetalleReporte(id) {
-  try {
-    const response = await fetch(`/api/reporte/${id}`, {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' }
-    });
-
-    const result = await response.json();
-
-    if (response.ok && result.success) {
-      const reporte = result.reporte;
-      const estadoInfo = estadosReportes[reporte.rep_estado];
-      const fechaLev = new Date(reporte.rep_fecha_lev).toLocaleString('es-ES');
-      const fechaRes = reporte.rep_fecha_res ? new Date(reporte.rep_fecha_res).toLocaleString('es-ES') : 'No resuelto';
-
-      const detalles = `
-        Reporte #${reporte.id}
-
-Estado: ${estadoInfo.estado}
-Fecha de levantamiento: ${fechaLev}
-Fecha de resolución: ${fechaRes}
-Salón: ${reporte.sal_id}
-Dispositivo: ${reporte.disp_id}
-Técnico asignado: ${reporte.tec_id || 'Sin asignar'}
-      `;
-
-      alert(detalles);
-    } else {
-      alert('Error al cargar los detalles del reporte');
-    }
-  } catch (error) {
-    console.error('Error al obtener detalles:', error);
-    alert('Error al cargar los detalles');
-  }
+  // Redirigir a la nueva página de detalle para alumnos
+  window.location.href = `/reporte-detalle-alumno/${id}`;
 }
 
 function aplicarFiltro(tipo) {
@@ -136,3 +103,4 @@ function aplicarFiltro(tipo) {
     }
   });
 }
+

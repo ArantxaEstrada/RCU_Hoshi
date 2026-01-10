@@ -1,9 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const acciones = {
-    agregar: "agregar.ejs",
-    eliminar: "eliminar.ejs",
-    editar: "editar.ejs",
-    informe: "informe.ejs",
+    agregar: "/dispositivos/agregar",
+    buscar: "/dispositivos/buscar",
+    informe: "/dispositivos/informe",
     volver: "/main"
   };
 
@@ -16,3 +15,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+

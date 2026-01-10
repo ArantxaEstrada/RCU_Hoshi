@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalles del Técnico</title>
+  <link rel="stylesheet" href="/FrontEnd/CSS/styleli.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <div class="left-panel">
+      <img src="/FrontEnd/img/plantel.jpg" alt="Imagen del plantel" class="plantel-image" />
+    </div>
+
+    <div class="right-panel">
+      <img src="/FrontEnd/img/logo-ipn.png" alt="Logo IPN" class="logo logo-left" />
+      <img src="/FrontEnd/img/rcu-logo.png" alt="Logo RCU" class="logo logo-right" />
+
+      <div class="inner-card">
+        <h1 class="card-title">DETALLES DEL TÉCNICO</h1>
+        <p class="card-sub">Información del técnico encontrado</p>
+
+        <div class="form-scroll">
+          <div class="info-section">
+            <div class="info-label">Nombre completo</div>
+            <div class="info-value" id="nombreTecnico">-</div>
+          </div>
+
+          <div class="info-section">
+            <div class="info-label">ID</div>
+            <div class="info-value" id="idTecnico">-</div>
+          </div>
+
+          <div class="info-section">
+            <div class="info-label">Correo electrónico</div>
+            <div class="info-value" id="correoTecnico">-</div>
+          </div>
+
+          <div class="info-section">
+            <div class="info-label">Estado</div>
+            <div class="info-value" id="estadoTecnico">-</div>
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button class="btn-secondary" id="btnEditar">
+            <span class="material-symbols-outlined">edit</span>
+            Actualizar
+          </button>
+          <button class="btn-danger" id="btnEliminar">
+            <span class="material-symbols-outlined">delete</span>
+            Eliminar
+          </button>
+        </div>
+
+        <div class="mt-1-5">
+          <button class="btn-action" data-action="volver">
+            <span class="material-symbols-outlined">arrow_back</span>
+            Volver
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/FrontEnd/JS/detallesTecnico.js"></script>
+</body>
+</html>

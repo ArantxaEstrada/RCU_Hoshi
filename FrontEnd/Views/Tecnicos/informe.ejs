@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Informe del Técnico</title>
+  <link rel="stylesheet" href="/FrontEnd/CSS/styleli.css" />
+  <link rel="stylesheet" href="/FrontEnd/CSS/styleinforme.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<body class="informe-page">
+  <div class="container">
+    <div class="left-panel">
+      <img src="/FrontEnd/img/plantel.jpg" alt="Imagen del plantel" class="plantel-image" />
+    </div>
+
+    <div class="right-panel">
+      <img src="/FrontEnd/img/logo-ipn.png" alt="Logo IPN" class="logo logo-left" />
+      <img src="/FrontEnd/img/rcu-logo.png" alt="Logo RCU" class="logo logo-right" />
+
+      <div class="inner-card">
+        <h1 class="card-title">INFORME DEL TÉCNICO</h1>
+        <p class="card-sub">Estadísticas y reportes asignados</p>
+
+        <div id="errorContainer" class="error-message"></div>
+
+        <!-- Búsqueda para admin (compacta y plegable) -->
+        <div id="searchSection" class="search-section">
+          <div class="informe-toolbar">
+            <button id="toggleSearch" class="btn-action btn-small" type="button">
+              <span class="material-symbols-outlined" aria-hidden="true">manage_search</span>
+              Buscar informe
+            </button>
+          </div>
+          <div id="searchDropdown" class="search-dropdown">
+            <label for="buscar_id" class="info-label">ID del técnico</label>
+            <div class="search-row">
+              <input type="text" id="buscar_id" placeholder="Ingresa el ID" />
+              <button class="btn-action btn-small" type="button" onclick="buscarInforme()">
+                <span class="material-symbols-outlined" aria-hidden="true">search</span>
+                Buscar
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-scroll" id="informeContainer">
+          <!-- Información del técnico -->
+          <div class="info-section">
+            <div class="info-label">Nombre completo</div>
+            <div class="info-value" id="nombreTecnico">Cargando...</div>
+          </div>
+
+          <div class="info-section">
+            <div class="info-label">ID</div>
+            <div class="info-value" id="idTecnico">-</div>
+          </div>
+
+          <div class="info-section">
+            <div class="info-label">Correo</div>
+            <div class="info-value" id="correoTecnico">-</div>
+          </div>
+
+          <div class="info-section">
+            <div class="info-label">Estado</div>
+            <div class="info-value" id="estadoTecnico">-</div>
+          </div>
+
+          <!-- Estadísticas -->
+          <div class="stats-container">
+            <div class="stat-box total">
+              <div class="stat-number" id="statTotal" style="color:#fff">0</div>
+              <div class="stat-label" style="color:#fff">Total</div>
+            </div>
+            <div class="stat-box pendientes">
+              <div class="stat-number" id="statPendientes">0</div>
+              <div class="stat-label">Pendientes</div>
+            </div>
+            <div class="stat-box proceso">
+              <div class="stat-number" id="statEnProceso">0</div>
+              <div class="stat-label">En Proceso</div>
+            </div>
+            <div class="stat-box completados">
+              <div class="stat-number" id="statCompletados">0</div>
+              <div class="stat-label">Completados</div>
+            </div>
+          </div>
+
+          <!-- Lista de reportes -->
+          <div class="reports-section">
+            <div class="section-title">Reportes Asignados</div>
+            <div class="reports-list" id="reportsList">
+              <div class="empty-message">No hay reportes asignados</div>
+            </div>
+          </div>
+
+          <!-- Detalle del reporte seleccionado -->
+          <div class="report-detail-card" id="reportDetailCard">
+            <div class="section-title">Detalle del Reporte</div>
+            <div class="detail-row">
+              <div class="detail-label">ID Reporte:</div>
+              <div class="detail-value" id="detailId">-</div>
+            </div>
+            <div class="detail-row">
+              <div class="detail-label">Salón:</div>
+              <div class="detail-value" id="detailSalon">-</div>
+            </div>
+            <div class="detail-row">
+              <div class="detail-label">Dispositivo:</div>
+              <div class="detail-value" id="detailDispositivo">-</div>
+            </div>
+            <div class="detail-row">
+              <div class="detail-label">Alumno (Boleta):</div>
+              <div class="detail-value" id="detailAlumno">-</div>
+            </div>
+            <div class="detail-row">
+              <div class="detail-label">Fecha Levantamiento:</div>
+              <div class="detail-value" id="detailFechaLev">-</div>
+            </div>
+            <div class="detail-row">
+              <div class="detail-label">Fecha Asignación:</div>
+              <div class="detail-value" id="detailFechaAsig">-</div>
+            </div>
+            <div class="detail-row">
+              <div class="detail-label">Fecha Resolución:</div>
+              <div class="detail-value" id="detailFechaRes">-</div>
+            </div>
+            <div class="detail-row">
+              <div class="detail-label">Estado:</div>
+              <div class="detail-value" id="detailEstado">-</div>
+            </div>
+            <div class="detail-row">
+              <div class="detail-label">Descripción:</div>
+              <div class="detail-value" id="detailDescripcion">-</div>
+            </div>
+            <div class="detail-row">
+              <div class="detail-label">Solución:</div>
+              <div class="detail-value" id="detailSolucion">-</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-1-5">
+          <button class="btn-action" data-action="volver">
+            <span class="material-symbols-outlined">arrow_back</span>
+            Volver
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/FrontEnd/JS/informeTecnico.js"></script>
+</body>
+</html>
