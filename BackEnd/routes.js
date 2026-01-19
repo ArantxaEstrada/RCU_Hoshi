@@ -10,6 +10,7 @@ import {
     obtenerReportesPendientes,
     obtenerReportesCompletados,
     obtenerDetalleReporteTecnico,
+    resolverReporte,
     obtenerUsuarioActual,
     obtenerInformeTecnico,
     obtenerEdificios,
@@ -28,7 +29,8 @@ import {
     buscarDispositivo,
     crearDispositivo,
     actualizarDispositivo,
-    obtenerDispositivosInforme
+    obtenerDispositivosInforme,
+    obtenerFechaMexico
 } from './controller.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -40,7 +42,7 @@ const rootDir = path.resolve(__dirname, '..');
 
 // Health check para Render/monitoring
 router.get('/health', (req, res) => {
-  res.status(200).json({ status: 'ok', timestamp: new Date().toISOString() });
+  res.status(200).json({ status: 'ok', timestamp: obtenerFechaMexico() });
 });
 
 // Rutas de autenticación
@@ -54,7 +56,7 @@ router.post('/cerrar-sesion-silenciosa', async (req, res) => {
                 .from('sesion')
                 .update({
                     ses_status: false,
-                    ses_fecha_f: new Date().toISOString()
+                    ses_fecha_f: obtenerFechaMexico()
                 })
                 .eq('id', req.session.sessionId);
 
@@ -160,6 +162,9 @@ router.get('/api/inventario', requireAuth, obtenerInventario);
 
 // Endpoint para crear reporte
 router.post('/reportes/generar', requireAuth, crearReporte);
+
+// Endpoint para resolver reporte
+router.post('/api/reportes/:id/resolver', requireAuth, resolverReporte);
 
 // Endpoints para usuario y técnicos
 router.get('/api/usuario-actual', requireAuth, obtenerUsuarioActual);

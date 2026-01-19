@@ -3,7 +3,6 @@ import session from 'express-session';
 import path from 'path';
 import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
-import supabase from './dbconfig.js';
 import routes from './routes.js';
 
 dotenv.config();
