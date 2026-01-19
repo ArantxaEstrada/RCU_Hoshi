@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Agregar Técnico</title>
+  <link rel="icon" type="image/png" href="/FrontEnd/img/rcu-logo.png">
   <link rel="stylesheet" href="/FrontEnd/CSS/styleli.css" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </head>
@@ -34,7 +35,7 @@
           <input type="text" id="apellido_materno" name="apellido_materno" placeholder="Apellido materno" required />
 
           <label for="id_tecnico">ID del técnico</label>
-          <input type="text" id="id_tecnico" name="id_tecnico" placeholder="Número de trabajador" required />
+          <input type="text" id="id_tecnico" name="id_tecnico" placeholder="Número de trabajador (10 dígitos)" maxlength="10" pattern="[0-9]{10}" required />
 
           <label for="correo">Correo del técnico</label>
           <input type="email" id="correo" name="correo" placeholder="ejemplo@dominio.com" required />

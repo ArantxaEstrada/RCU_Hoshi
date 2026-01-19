@@ -34,7 +34,7 @@ async function buscarAlumno() {
 
     const boleta = document.getElementById("boleta").value;
 
-    const regexBoleta = /^[0-9]{1,20}$/;
+    const regexBoleta = /^[0-9]{10}$/;
     const boletaTrim = boleta.trim();
 
     if (!boletaTrim) {
@@ -45,7 +45,7 @@ async function buscarAlumno() {
     }
 
     if (!regexBoleta.test(boletaTrim)) {
-      mostrarError('La boleta solo puede contener números');
+      mostrarError('La boleta debe contener exactamente 10 dígitos');
       btnBuscar.disabled = false;
       btnBuscar.innerHTML = '<span class="material-symbols-outlined">search</span> Buscar';
       return;

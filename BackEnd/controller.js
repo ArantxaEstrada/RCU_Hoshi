@@ -819,7 +819,7 @@ export const buscarAlumno = async (req, res) => {
         }
 
         // Validación con regex
-        const regexBoleta = /^[0-9]{1,20}$/;
+        const regexBoleta = /^[0-9]{10}$/;
         const boletaTrim = boleta.toString().trim();
 
         if (!boletaTrim) {
@@ -832,7 +832,7 @@ export const buscarAlumno = async (req, res) => {
         if (!regexBoleta.test(boletaTrim)) {
             return res.status(400).json({
                 success: false,
-                message: 'La boleta solo puede contener números'
+                message: 'La boleta debe contener exactamente 10 dígitos'
             });
         }
 
@@ -888,7 +888,7 @@ export const crearAlumno = async (req, res) => {
 
         // Validaciones con regex
         const regexNombre = /^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$/;
-        const regexBoleta = /^[0-9]{1,20}$/;
+        const regexBoleta = /^[0-9]{10}$/;
         const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const regexPasswordLength = /^.{8,25}$/;
         const regexPasswordHasLetter = /[A-Za-z]/;
@@ -932,7 +932,7 @@ export const crearAlumno = async (req, res) => {
         if (!regexBoleta.test(boletaTrim)) {
             return res.status(400).json({
                 success: false,
-                message: 'La boleta solo puede contener números'
+                message: 'La boleta debe contener exactamente 10 dígitos'
             });
         }
 
@@ -1328,7 +1328,7 @@ export const buscarTecnico = async (req, res) => {
         }
 
         // Validación con regex
-        const regexId = /^[0-9]{1,20}$/;
+        const regexId = /^[0-9]{10}$/;
         const idTrim = id_tecnico.toString().trim();
 
         if (!idTrim) {
@@ -1341,7 +1341,7 @@ export const buscarTecnico = async (req, res) => {
         if (!regexId.test(idTrim)) {
             return res.status(400).json({
                 success: false,
-                message: 'El ID solo puede contener números'
+                message: 'El ID debe contener exactamente 10 dígitos'
             });
         }
 
@@ -1397,7 +1397,7 @@ export const crearTecnico = async (req, res) => {
 
         // Validaciones con regex
         const regexNombre = /^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$/;
-        const regexId = /^[0-9]{1,20}$/;
+        const regexId = /^[0-9]{10}$/;
         const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const regexPasswordLength = /^.{8,25}$/;
         const regexPasswordHasLetter = /[A-Za-z]/;

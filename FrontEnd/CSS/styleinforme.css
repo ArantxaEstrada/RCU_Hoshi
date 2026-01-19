@@ -102,12 +102,10 @@
 
 .stat-box.pendientes {
     background-color: #ffc107;
-    color: #333;
 }
 
 .stat-box.proceso {
     background-color: #ff9800;
-    color: white;
 }
 
 .stat-box.completados {

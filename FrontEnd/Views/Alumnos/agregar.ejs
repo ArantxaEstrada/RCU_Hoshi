@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Agregar Alumno</title>
+  <link rel="icon" type="image/png" href="/FrontEnd/img/rcu-logo.png">
   <link rel="stylesheet" href="/FrontEnd/CSS/styleli.css" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </head>
@@ -34,7 +35,7 @@
           <input type="text" id="apellidoMaterno" name="apellidoMaterno" placeholder="Apellido materno" required />
 
           <label for="boleta">Boleta del alumno</label>
-          <input type="text" id="boleta" name="boleta" placeholder="Número de boleta" required />
+          <input type="text" id="boleta" name="boleta" placeholder="Número de boleta (10 dígitos)" maxlength="10" pattern="[0-9]{10}" required />
 
           <label for="correo">Correo del alumno</label>
           <input type="email" id="correo" name="correo" placeholder="ejemplo@dominio.com" required />

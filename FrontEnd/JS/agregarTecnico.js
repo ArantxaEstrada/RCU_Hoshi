@@ -46,7 +46,7 @@ async function crearTecnico() {
 
     // Validaciones frontend
     const regexNombre = /^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$/;
-    const regexId = /^[0-9]{1,20}$/;
+    const regexId = /^[0-9]{10}$/;
     const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const regexPasswordLength = /^.{8,25}$/;
     const regexPasswordHasLetter = /[A-Za-z]/;
@@ -88,7 +88,7 @@ async function crearTecnico() {
     }
 
     if (!regexId.test(idTrim)) {
-      mostrarError('El ID solo puede contener números');
+      mostrarError('El ID debe contener exactamente 10 dígitos');
       btnAgregar.disabled = false;
       btnAgregar.innerHTML = '<span class="material-symbols-outlined">person_add</span> Agregar técnico';
       return;

@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Buscar Alumno</title>
+  <link rel="icon" type="image/png" href="/FrontEnd/img/rcu-logo.png">
   <link rel="stylesheet" href="/FrontEnd/CSS/styleli.css" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </head>
@@ -25,7 +26,7 @@
 
         <form class="login-form" id="formBuscar">
           <label for="boleta">Boleta del alumno</label>
-          <input type="text" id="boleta" name="boleta" required />
+          <input type="text" id="boleta" name="boleta" placeholder="10 dígitos" maxlength="10" pattern="[0-9]{10}" required />
 
           <button type="submit" class="btn-login" id="btnBuscar">
             <span class="material-symbols-outlined">search</span>

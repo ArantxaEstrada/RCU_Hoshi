@@ -34,7 +34,7 @@ async function buscarTecnico() {
 
     const id_tecnico = document.getElementById("id_tecnico").value;
 
-    const regexId = /^[0-9]{1,20}$/;
+    const regexId = /^[0-9]{10}$/;
     const idTrim = id_tecnico.trim();
 
     if (!idTrim) {
@@ -45,7 +45,7 @@ async function buscarTecnico() {
     }
 
     if (!regexId.test(idTrim)) {
-      mostrarError('El ID solo puede contener números');
+      mostrarError('El ID debe contener exactamente 10 dígitos');
       btnBuscar.disabled = false;
       btnBuscar.innerHTML = '<span class="material-symbols-outlined">search</span> Buscar';
       return;

@@ -46,7 +46,7 @@ async function crearAlumno() {
 
     // Validaciones frontend
     const regexNombre = /^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$/;
-    const regexBoleta = /^[0-9]{1,20}$/;
+    const regexBoleta = /^[0-9]{10}$/;
     const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const regexPasswordLength = /^.{8,25}$/;
     const regexPasswordHasLetter = /[A-Za-z]/;
@@ -88,7 +88,7 @@ async function crearAlumno() {
     }
 
     if (!regexBoleta.test(boletaTrim)) {
-      mostrarError('La boleta solo puede contener números');
+      mostrarError('La boleta debe contener exactamente 10 dígitos');
       btnAgregar.disabled = false;
       btnAgregar.innerHTML = '<span class="material-symbols-outlined">person_add</span> Agregar alumno';
       return;
