@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dar de alta dispositivo</title>
+  <link rel="icon" type="image/png" href="/FrontEnd/img/rcu-logo.png">
+  <link rel="stylesheet" href="/FrontEnd/CSS/styleli.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <div class="left-panel">
+      <img src="/FrontEnd/img/plantel.jpg" alt="Imagen del plantel" class="plantel-image" />
+    </div>
+
+    <div class="right-panel">
+      <img src="/FrontEnd/img/logo-ipn.png" alt="Logo IPN" class="logo logo-left" />
+      <img src="/FrontEnd/img/rcu-logo.png" alt="Logo RCU" class="logo logo-right" />
+
+      <div class="inner-card">
+        <h1 class="card-title">Dar de alta dispositivo</h1>
+        <p class="card-sub">Completa los datos para crear el dispositivo</p>
+
+        <div id="errorContainer" class="error-message"></div>
+
+        <div class="form-scroll">
+          <form class="login-form" id="formAgregar">
+            <label for="serial">Serial del dispositivo</label>
+            <input type="text" id="serial" name="serial" placeholder="Ej: 12345" required />
+
+            <label for="codigo">Código del dispositivo</label>
+            <input type="text" id="codigo" name="codigo" placeholder="Ej: 987654" required />
+
+            <label for="etiqueta">Etiqueta del dispositivo</label>
+            <input type="text" id="etiqueta" name="etiqueta" placeholder="Ej: ABC123" required />
+
+            <label for="tipo">Tipo de dispositivo</label>
+            <select id="tipo" name="tipo" required>
+              <option value="">Selecciona un tipo</option>
+            </select>
+
+            <label for="area">Área</label>
+            <select id="area" name="area" required>
+              <option value="">Selecciona un área</option>
+            </select>
+
+            <label for="salon">Salón</label>
+            <select id="salon" name="salon" required>
+              <option value="">Selecciona un salón</option>
+            </select>
+
+            <button type="submit" class="btn-login" id="btnCrear">
+              <span class="material-symbols-outlined">add_circle</span>
+              Crear dispositivo
+            </button>
+          </form>
+        </div>
+
+        <div class="mt-1-5">
+          <button class="btn-action" data-action="volver">
+            <span class="material-symbols-outlined">arrow_back</span>
+            Volver a dispositivos
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/FrontEnd/JS/agregarDispositivo.js"></script>
+</body>
+</html>
