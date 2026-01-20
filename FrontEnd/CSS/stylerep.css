@@ -359,3 +359,34 @@ main > * {
     margin-bottom: 15px;
     text-align: center;
 }
+
+#form-resolver {
+    display: none;
+    margin-top: 20px;
+}
+
+#form-resolver label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#form-resolver textarea,
+#form-resolver input[type="datetime-local"] {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+#form-resolver textarea {
+    resize: vertical;
+}
+
+#form-resolver input[type="datetime-local"] {
+    margin-bottom: 10px;
+}

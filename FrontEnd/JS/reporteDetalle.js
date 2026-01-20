@@ -3,9 +3,11 @@ let inventario = [];
 let salones = [];
 let areas = [];
 let alumnos = [];
+let reporteActual = null;
 
 document.addEventListener("DOMContentLoaded", async () => {
   const volverBtn = document.querySelector('[data-action="volver"]');
+  const resolverBtn = document.getElementById('btn-resolver');
 
   if (volverBtn) {
     volverBtn.addEventListener("click", () => {
@@ -18,6 +20,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         window.location.href = "/reportes-pendientes";
       }
     });
+  }
+
+  if (resolverBtn) {
+    resolverBtn.addEventListener("click", resolverReporte);
   }
 
   // Obtener ID del reporte desde la URL
@@ -66,6 +72,7 @@ async function cargarDetalle(reporteId) {
     salones = dataSalon.salones || [];
     areas = dataArea.areas || [];
 
+    reporteActual = dataReporte.reporte;
     mostrarReporte(dataReporte.reporte);
   } catch (err) {
     mostrarError('Error al cargar los detalles');
@@ -161,6 +168,61 @@ function mostrarReporte(reporte) {
   }
 
   detalleContainer.innerHTML = html;
+
+  // Mostrar botón de resolver solo si el reporte está pendiente
+  const formResolver = document.getElementById('form-resolver');
+  const btnResolver = document.getElementById('btn-resolver');
+
+  if (reporte.rep_estado === 1) { // Pendiente
+    formResolver.style.display = 'block';
+    btnResolver.style.display = 'inline-block';
+  } else {
+    formResolver.style.display = 'none';
+    btnResolver.style.display = 'none';
+  }
+}
+
+async function resolverReporte() {
+  const solucion = document.getElementById('solucion').value.trim();
+  const fechaResolucion = document.getElementById('fechaResolucion').value;
+
+  if (!solucion || solucion.length < 10) {
+    alert('La solución debe tener al menos 10 caracteres.');
+    return;
+  }
+
+  if (!fechaResolucion) {
+    alert('La fecha de resolución es requerida.');
+    return;
+  }
+
+  if (!reporteActual || !reporteActual.id) {
+    alert('Error: No se pudo identificar el reporte.');
+    return;
+  }
+
+  if (!confirm('¿Estás seguro de que deseas marcar este reporte como resuelto?')) {
+    return;
+  }
+
+  try {
+    const res = await fetch(`/api/reportes/${reporteActual.id}/resolver`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ solucion, fechaResolucion })
+    });
+
+    const data = await res.json();
+
+    if (res.ok && data.success) {
+      alert('Reporte resuelto exitosamente');
+      window.location.href = '/reportes-pendientes';
+    } else {
+      alert(data.message || 'Error al resolver el reporte');
+    }
+  } catch (err) {
+    alert('Error de conexión al resolver el reporte');
+  }
 }
 
 function formatDate(fechaString) {

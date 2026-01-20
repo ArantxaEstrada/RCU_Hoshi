@@ -81,7 +81,7 @@ async function login() {
     return;
   }
 
-  if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(correo)) {
+  if (!/^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/.test(correo)) {
     alert("Por favor ingresa un correo electrónico válido (ejemplo: usuario@dominio.com).");
     document.getElementById("correo").focus();
     return;

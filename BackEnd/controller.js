@@ -1,5 +1,60 @@
 import supabase from './dbconfig.js';
 
+// Función para obtener la fecha y hora actual en zona horaria de México
+const obtenerFechaMexico = () => {
+    const fecha = new Date();
+    // Obtener la fecha en formato de México usando toLocaleString
+    const opciones = {
+        timeZone: 'America/Mexico_City',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+    };
+
+    const fechaStr = fecha.toLocaleString('en-CA', opciones); // en-CA da formato YYYY-MM-DD
+    // Reconstruir en formato ISO
+    const [fechaParte, horaParte] = fechaStr.split(', ');
+    return `${fechaParte}T${horaParte}.000Z`;
+};
+
+// Función para parsear una fecha datetime-local como hora de México
+const parsearFechaMexico = (fechaStr) => {
+    // fechaStr viene en formato "2026-01-19T11:00"
+    // Necesitamos interpretarlo como hora de México
+    const fecha = new Date(fechaStr);
+
+    // Convertir a string en zona horaria de México
+    const opciones = {
+        timeZone: 'America/Mexico_City',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+    };
+
+    const fechaMxStr = fecha.toLocaleString('en-CA', opciones);
+    const [fechaParte, horaParte] = fechaMxStr.split(', ');
+    const fechaIso = `${fechaParte}T${horaParte}.000Z`;
+
+    // Ahora calculamos la diferencia entre lo que el usuario ingresó y lo que salió
+    // para extraer correctamente la hora de México
+    const partes = fechaStr.split('T');
+    const horaIngresada = partes[1]; // "11:00"
+
+    // Reconstruir la fecha ISO usando la hora que el usuario ingresó
+    return `${fechaParte}T${horaIngresada}:00.000Z`;
+};
+
+// Exportar las funciones para usar en routes.js
+export { obtenerFechaMexico, parsearFechaMexico };
+
 // Obtener perfil del usuario actual
 export const obtenerPerfil = async (req, res) => {
     try {
@@ -79,7 +134,7 @@ export const login = async (req, res) => {
             .from('sesion')
             .update({
                 ses_status: false,
-                ses_fecha_f: new Date().toISOString()
+                ses_fecha_f: obtenerFechaMexico()
             })
             .eq('usr_id', usuario.id)
             .eq('ses_status', true);
@@ -103,7 +158,7 @@ export const login = async (req, res) => {
                 usr_id: usuario.id,
                 perf_id: usuario.perf_tipo,
                 ses_status: true,
-                ses_fecha_i: new Date().toISOString()
+                ses_fecha_i: obtenerFechaMexico()
             })
             .select()
             .single();
@@ -148,7 +203,7 @@ export const logout = async (req, res) => {
                 .from('sesion')
                 .update({
                     ses_status: false,
-                    ses_fecha_f: new Date().toISOString()
+                    ses_fecha_f: obtenerFechaMexico()
                 })
                 .eq('id', req.session.sessionId);
 
@@ -204,7 +259,7 @@ export const verificarSesion = async (req, res) => {
                 .from('sesion')
                 .update({
                     ses_status: false,
-                    ses_fecha_f: new Date().toISOString()
+                    ses_fecha_f: obtenerFechaMexico()
                 })
                 .eq('id', req.session.sessionId);
 
@@ -256,7 +311,7 @@ export const requireAuth = async (req, res, next) => {
                 .from('sesion')
                 .update({
                     ses_status: false,
-                    ses_fecha_f: new Date().toISOString()
+                    ses_fecha_f: obtenerFechaMexico()
                 })
                 .eq('id', req.session.sessionId);
 
@@ -505,11 +560,11 @@ export const crearReporte = async (req, res) => {
                 sal_id: parseInt(salon),
                 disp_id: parseInt(dispositivo),
                 al_boleta: alumno_boleta,
-                rep_fecha_lev: new Date().toISOString(),
+                rep_fecha_lev: obtenerFechaMexico(),
                 rep_estado: 1, // 1 = Pendiente (naranja) - ya asignado
                 rep_descripcion: descripcion,
                 tec_id: tecnicoAsignado.id,
-                rep_fecha_asig_tec: new Date().toISOString()
+                rep_fecha_asig_tec: obtenerFechaMexico()
             })
             .select()
             .single();
@@ -675,6 +730,101 @@ export const obtenerDetalleReporteTecnico = async (req, res) => {
         });
     }
 };
+
+// Resolver/Completar un reporte
+export const resolverReporte = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { solucion, fechaResolucion } = req.body;
+        const tipoUsuario = req.session.perfilId;
+        const userId = req.session.userId;
+
+        // Validaciones
+        if (!id || !tipoUsuario || !userId) {
+            return res.status(400).json({
+                success: false,
+                message: 'Parámetros inválidos'
+            });
+        }
+
+        if (!solucion || solucion.trim().length < 10) {
+            return res.status(400).json({
+                success: false,
+                message: 'La solución debe tener al menos 10 caracteres'
+            });
+        }
+
+        if (!fechaResolucion) {
+            return res.status(400).json({
+                success: false,
+                message: 'La fecha de resolución es requerida'
+            });
+        }
+
+        // Parsear la fecha como hora de México
+        const fechaResolucionIso = parsearFechaMexico(fechaResolucion);
+        const fechaResolucionDate = new Date(fechaResolucionIso);
+
+        if (isNaN(fechaResolucionDate.getTime())) {
+            return res.status(400).json({
+                success: false,
+                message: 'Fecha de resolución inválida'
+            });
+        }
+
+        // Verificar que el reporte exista y esté asignado al técnico (si es técnico)
+        let query = supabase
+            .from('reporte')
+            .select('*')
+            .eq('id', id)
+            .eq('rep_estado', 1); // Solo reportes pendientes
+
+        if (tipoUsuario === 2) { // Si es técnico, debe ser su reporte
+            query = query.eq('tec_id', userId);
+        }
+
+        const { data: reporte, error: errorReporte } = await query.single();
+
+        if (errorReporte || !reporte) {
+            return res.status(404).json({
+                success: false,
+                message: 'Reporte no encontrado o ya fue resuelto'
+            });
+        }
+
+        // Actualizar el reporte
+        const { data: reporteActualizado, error: errorUpdate } = await supabase
+            .from('reporte')
+            .update({
+                rep_estado: 2, // Completado
+                rep_solucion: solucion.trim(),
+                rep_fecha_res: fechaResolucionDate.toISOString()
+            })
+            .eq('id', id)
+            .select()
+            .single();
+
+        if (errorUpdate) {
+            return res.status(500).json({
+                success: false,
+                message: 'Error al actualizar el reporte'
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            message: 'Reporte resuelto exitosamente',
+            reporte: reporteActualizado
+        });
+
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: 'Error interno del servidor'
+        });
+    }
+};
+
 // Obtener datos del usuario actual
 export const obtenerUsuarioActual = async (req, res) => {
     try {

@@ -30,7 +30,29 @@
           </div>
         </div>
 
+        <div id="form-resolver">
+          <label for="solucion">Solución aplicada:</label>
+          <textarea
+            id="solucion"
+            name="solucion"
+            rows="4"
+            placeholder="Describe la solución aplicada al problema (mínimo 10 caracteres)"
+          ></textarea>
+
+          <label for="fechaResolucion">Fecha y hora de resolución:</label>
+          <input
+            type="datetime-local"
+            id="fechaResolucion"
+            name="fechaResolucion"
+            required
+          />
+        </div>
+
         <div class="botones-fila">
+          <button id="btn-resolver" class="btn-enviar" type="button" style="display:none;">
+            Resolver Reporte
+          </button>
+
           <button class="btn-enviar" type="button" data-action="volver">
             Volver
           </button>
