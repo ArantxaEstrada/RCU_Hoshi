@@ -931,7 +931,6 @@ export const obtenerInformeTecnico = async (req, res) => {
 
         const total = (reportes || []).length;
         const pendientes = (reportes || []).filter(r => r.rep_estado === 1).length;
-        const en_proceso = (reportes || []).filter(r => r.rep_estado === 0).length; // si no existe estado 0, será 0
         const completados = (reportes || []).filter(r => r.rep_estado === 2).length;
 
         return res.status(200).json({
@@ -941,7 +940,6 @@ export const obtenerInformeTecnico = async (req, res) => {
                 estadisticas: {
                     total,
                     pendientes,
-                    en_proceso,
                     completados
                 },
                 reportes: reportes || []
